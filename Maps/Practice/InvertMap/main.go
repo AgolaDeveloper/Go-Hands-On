@@ -24,6 +24,7 @@ func invertMap(ourMap func() map[int]int) {
 }
 
 func main() {
+	invertMap(popMap)
 
 }
 
