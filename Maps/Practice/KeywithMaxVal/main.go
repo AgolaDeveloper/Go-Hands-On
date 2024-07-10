@@ -3,6 +3,24 @@ package main
 
 import "fmt"
 
+func keyWithMaxValue() {
+	//initialize variable to store whatever [map] returned by our parameter
+	theMap := ourMap()
+
+	//initially make maxValue to 0
+	maxValue := 0
+
+	//iterate through the map
+	for key, value := range theMap {
+		//then compare every value to it
+		if theMap[key] > maxValue {
+			//make value of this key maximum value if it's greater than the current maxValue
+
+			maxValue = theMap[key]
+		}
+	}
+}
+
 func main() {
 
 }
