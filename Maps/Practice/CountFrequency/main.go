@@ -19,7 +19,7 @@ func cntFrequency(ourSlice func() []int) {
 
 		_, ok := frequentMap[elements[i]]
 
-		if ok == false {
+		if !ok {
 			//if its presence in the map is false; we go ahead and check its frequency
 			//...and then increment our its count
 			for j := i; j < len(elements); j++ {
