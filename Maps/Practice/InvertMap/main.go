@@ -5,7 +5,7 @@ import "fmt"
 
 //function that receives a map and inverts it (swap keys and values)
 //ourMap func() map[int]int as its argument
-func invertMap(func() map[int]int) {
+func invertMap(ourMap func() map[int]int) {
 	//initialize variable that'll hold return value of the the passed parameter
 	theMap := ourMap()
 
