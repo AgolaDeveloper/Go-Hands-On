@@ -10,24 +10,37 @@ func cntFrequency(ourSlice func() []int) {
 	//we create a map for storing frequency of every element
 	frequentMap := make(map[int]int)
 
-	for i := 0; i < len(elements)-1; i++ {
+	//we check frequency of every number by using a nested loop
+	for i := 0; i < len(elements); i++ {
 		count := 0
 
-		for j := i + 1; j < len(elements); j++ {
-			if elements[i] == elements[j] {
-				count++
+		//we only check frequency of a number if it's not already in the map
+		//else we continue to the next number
 
+		_, ok := frequentMap[elements[i]]
+
+		if ok == false {
+			//if its presence in the map is false; we go ahead and check its frequency
+			//...and then increment our its count
+			for j := i; j < len(elements); j++ {
+				if elements[i] == elements[j] {
+					count++
+				}
 			}
-			frequentMap[i] = count
+			//...then map it to its resultant count[its frequency]
+			frequentMap[elements[i]] = count
 
 		}
 
 	}
+
 	//now you print frequency of every element
+	fmt.Println("Here's our Slice: ", elements)
+
+	fmt.Println("Here's our Map: ", frequentMap)
 	for key, value := range frequentMap {
 		fmt.Printf("\n%v: appears %v times\n", key, value)
 	}
-
 }
 
 func main() {
