@@ -9,25 +9,32 @@ func keyWithMaxValue(ourMap func() map[string]int) {
 
 	//initially make maxValue to 0
 	maxValue := 0
+	var maxKey string
 
 	//iterate through the map
-	for key := range theMap {
+	for key, value := range theMap {
 		//then compare every value to it
-		if theMap[key] > maxValue {
+		if value > maxValue {
 			//make value of this key maximum value if it's greater than the current maxValue
 
-			maxValue = theMap[key]
+			maxValue = value
 			//and assign it's key as key with maxVal
-			//maxKey:=key
+			maxKey = key
 		}
 	}
+
+	//here's our map
+	fmt.Printf("\nThe MAP:\n %v \n", theMap)
+
 	//Print the key with maxValue
 
-	fmt.Printf("\nKey with Maximum Value: %v \n")
+	fmt.Printf("\nKey with Maximum Value: %v \n", maxKey)
+	fmt.Printf("\nIt's Value: %v \n", maxValue)
 
 }
 
 func main() {
+	//Call keykeyWithMaxValue function with popMap passed as its argument
 	keyWithMaxValue(popMap)
 
 }
