@@ -11,7 +11,7 @@ func keyWithMaxValue(ourMap func() map[string]int) {
 	maxValue := 0
 
 	//iterate through the map
-	for key, value := range theMap {
+	for key := range theMap {
 		//then compare every value to it
 		if theMap[key] > maxValue {
 			//make value of this key maximum value if it's greater than the current maxValue
@@ -28,6 +28,7 @@ func keyWithMaxValue(ourMap func() map[string]int) {
 }
 
 func main() {
+	keyWithMaxValue(popMap)
 
 }
 
