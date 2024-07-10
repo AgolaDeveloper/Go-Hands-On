@@ -1,7 +1,27 @@
-// Write a function to invert a map (swap keys and values).
+// here we write a program that inverts a map (swap keys and values).
 package main
 
 import "fmt"
+
+//function that receives a map and inverts it (swap keys and values)
+//ourMap func() map[int]int as its argument
+func invertMap() {
+	//initialize variable that'll hold return value of the the passed parameter
+	theMap := ourMap()
+
+	fmt.Println("Original Map: ", theMap)
+	//we'll range through the map and invert it through swapping
+
+	for key, value := range theMap {
+		//then swap every key with its value
+		temp := key
+		key = value
+		value = temp
+	}
+
+	fmt.Println("Inverted Map: ", theMap)
+
+}
 
 func main() {
 
