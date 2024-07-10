@@ -3,7 +3,7 @@ package main
 
 import "fmt"
 
-func keyWithMaxValue() {
+func keyWithMaxValue(ourMap func() map[string]int) {
 	//initialize variable to store whatever [map] returned by our parameter
 	theMap := ourMap()
 
@@ -17,8 +17,14 @@ func keyWithMaxValue() {
 			//make value of this key maximum value if it's greater than the current maxValue
 
 			maxValue = theMap[key]
+			//and assign it's key as key with maxVal
+			//maxKey:=key
 		}
 	}
+	//Print the key with maxValue
+
+	fmt.Printf("\nKey with Maximum Value: %v \n")
+
 }
 
 func main() {
