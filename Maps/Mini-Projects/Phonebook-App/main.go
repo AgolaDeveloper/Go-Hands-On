@@ -2,6 +2,13 @@
 package main
 
 func main() {
-	//add Contact
+	//add Contact... call addContact with phonebook passed as argument
+	//... it'll write to phonebook['s Map Data Struct]
 	addContact(phonebook)
+
+	//Delete Contact... call addContact with phonebook passed as argument
+	//... it'll delete an existing contact from the phonebook['s Map Data Struct]
+
+	deleteContact(phonebook)
+
 }
