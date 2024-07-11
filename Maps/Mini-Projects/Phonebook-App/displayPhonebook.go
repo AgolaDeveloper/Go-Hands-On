@@ -6,14 +6,14 @@ import "fmt"
 //func checks if phonebook is empty then display all the contact
 //it takes phonebook Map func as an argument
 
-func DisplayPhonebook(phonebook func() map[string]string) {
+func DisplayPhonebook(phonebook map[string]string) {
 
-	phoneBookMap := phonebook()
+	phoneBookMap := phonebook
 
 	//first checks whether phonebook is empty or not
-	if phoneBookMap == nil {
+	if len(phoneBookMap) == 0 {
 
-		//if it's nill/empty >>then print empty
+		//if it's empty >>then print empty
 		fmt.Println("PhoneBook Empty")
 	} else {
 		//else, phonebook get displayed

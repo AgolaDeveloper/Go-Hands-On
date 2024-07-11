@@ -7,12 +7,13 @@ import "fmt"
 //must check if the contact is present though
 
 //this func takes phoneBook data struct as a parameter and deletes a contact from it
-func DeleteContact(phoneBook func() map[string]string) {
+func DeleteContact(phoneBook map[string]string) {
+
 	//store return value of phonebook to phonBookMap
-	phoneBookMap := phoneBook()
+	phoneBookMap := phoneBook
 
 	//then checks if phonebook is empty first
-	if phoneBookMap == nil {
+	if len(phoneBookMap) == 0 {
 		//if it's nill/empty >>then deletion impossible
 		fmt.Println("Nothing to delete! PhoneBook Empty")
 	} else {

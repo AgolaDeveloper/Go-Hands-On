@@ -4,10 +4,11 @@ package main
 import "fmt"
 
 //the func ranges through phonebook and displays contact details
-func SearchContact(phonebook func() map[string]string) {
-	phoneBookMap := phonebook()
+func SearchContact(phonebook map[string]string) {
+	phoneBookMap := phonebook
 
-	if phoneBookMap == nil {
+	//first confirms whether map is empty
+	if len(phoneBookMap) == 0 {
 		//if it's nill/empty >>then deletion impossible
 		fmt.Println("PhoneBook Empty")
 	} else {
