@@ -2,6 +2,8 @@
 package main
 
 func main() {
+
+	displayPhonebook(phonebook)
 	//add Contact... call addContact with phonebook passed as argument
 	//... it'll write to phonebook['s Map Data Struct]
 	addContact(phonebook)
