@@ -4,7 +4,12 @@ package main
 import "fmt"
 
 //function that adds contact to our Phonebook
-func addContact() {
+//this func takes another function (that returns a map data struct) as a return value
+func addContact(phoneBook func() map[string]string) {
+
+	//store return value of phoneBook Map data struct to phoneBookMap
+	phoneBookMap := phoneBook()
+
 	//it only adds Last Name and Phone Number
 	var name string
 	var phone string
@@ -17,6 +22,7 @@ func addContact() {
 	fmt.Println("Phone Number: ")
 	fmt.Scan(&phone)
 
-	//then we add the Contact details to our Phonebook Data Structure; which is a MAP for now
-
+	//then we write the contact details to our data structure
+	phoneBookMap[name] = phone
+	//it doesn't return anything; since it adds data to our Map Data Struct
 }
