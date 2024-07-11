@@ -6,7 +6,7 @@ import "fmt"
 //func checks if phonebook is empty then display all the contact
 //it takes phonebook Map func as an argument
 
-func displayPhonebook(phoneBook func() map[string]string) {
+func displayPhonebook(phonebook func() map[string]string) {
 
 	phoneBookMap := phonebook()
 
