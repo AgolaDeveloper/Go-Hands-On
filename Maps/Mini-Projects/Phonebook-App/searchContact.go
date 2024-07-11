@@ -4,8 +4,8 @@ package main
 import "fmt"
 
 //the func ranges through phonebook and displays contact details
-func searchContact() {
-
+func searchContact(phonebook func() map[string]string) {
+	phoneBookMap := phonebook()
 	var cont string
 
 	fmt.Println("Search>>\n >>: ")
@@ -21,7 +21,7 @@ func searchContact() {
 		for key, value := range phoneBookMap {
 			//print key and value where key equals cont
 			if key == cont {
-				fmt.Printf("Name: %v\n Contact Number: %V\n", key, value)
+				fmt.Printf("\n Name: %v\n Contact Number: %v\n", key, value)
 
 			}
 		}
