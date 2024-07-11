@@ -5,7 +5,7 @@ import "fmt"
 
 //function that adds contact to our Phonebook
 //this func takes another function (that returns a map data struct) as a return value
-func addContact(phoneBook func() map[string]string) {
+func AddContact(phoneBook func() map[string]string) {
 
 	//store return value of phoneBook Map data struct to phoneBookMap
 	phoneBookMap := phoneBook()

@@ -5,7 +5,7 @@ import "fmt"
 
 func main() {
 	//your phonebook
-	displayPhonebook(phonebook)
+	DisplayPhonebook(Phonebook)
 
 	var choice int
 	fmt.Println("1. PHONEBOOK")
@@ -18,19 +18,19 @@ func main() {
 	switch choice {
 	case 1:
 		//your phonebook
-		displayPhonebook(phonebook)
+		DisplayPhonebook(Phonebook)
 	case 2:
 		//add Contact... call addContact with phonebook passed as argument
 		//... it'll write to phonebook['s Map Data Struct]
-		addContact(phonebook)
+		AddContact(Phonebook)
 	case 3:
 		//Delete Contact... call addContact with phonebook passed as argument
 		//... it'll delete an existing contact from the phonebook['s Map Data Struct]
-		deleteContact(phonebook)
+		DeleteContact(Phonebook)
 	case 4:
 		//Delete Contact... call addContact with phonebook passed as argument
 		//... it'll delete an existing contact from the phonebook['s Map Data Struct]
-		searchContact(phonebook)
+		SearchContact(Phonebook)
 
 	}
 

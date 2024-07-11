@@ -7,7 +7,7 @@ import "fmt"
 //must check if the contact is present though
 
 //this func takes phoneBook data struct as a parameter and deletes a contact from it
-func deleteContact(phoneBook func() map[string]string) {
+func DeleteContact(phoneBook func() map[string]string) {
 	//store return value of phonebook to phonBookMap
 	phoneBookMap := phoneBook()
 

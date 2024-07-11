@@ -4,7 +4,7 @@ package main
 import "fmt"
 
 //the func ranges through phonebook and displays contact details
-func searchContact(phonebook func() map[string]string) {
+func SearchContact(phonebook func() map[string]string) {
 	phoneBookMap := phonebook()
 
 	if phoneBookMap == nil {
