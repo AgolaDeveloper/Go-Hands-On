@@ -31,4 +31,6 @@ func removeDuplicate(sliceStruct []int) []int {
 			}
 		}
 	}
+
+	return slice
 }
