@@ -9,8 +9,8 @@ func main() {
 	DisplayPhonebook(phonebook)
 	for {
 
-		retryy:
-		
+	retryy:
+
 		var choice int
 		fmt.Println("1. PHONEBOOK")
 		fmt.Println("2. ADD Contact")
@@ -36,9 +36,8 @@ func main() {
 			//... it'll delete an existing contact from the phonebook['s Map Data Struct]
 			SearchContact(phonebook)
 		default:
-			got retryy
+			goto retryy
 			fmt.Println("Invalid Choice...retry")
-
 
 		}
 

@@ -12,11 +12,17 @@ func invertMap(ourMap func() map[int]int) {
 	fmt.Println("Original Map: ", theMap)
 	//we'll range through the map and invert it through swapping
 
+	var temp int
 	for key, value := range theMap {
+
+		//we store key and value in different new variables
+		k := key
+		v := value
 		//then swap every key with its value
-		temp := key
-		key = value
-		value = temp
+
+		temp = v
+		v = k
+		k = temp
 	}
 
 	fmt.Println("Inverted Map: ", theMap)
