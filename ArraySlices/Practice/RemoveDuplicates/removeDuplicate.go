@@ -14,7 +14,7 @@ func removeDuplicate(sliceStruct []int) []int {
 	sliceDuplicates := make([]int, 0)
 
 	//range the slice in nested loops while weeding out the duplicates
-	for i := 0; i < len(slice); i++ {
+	for i := 0; i < len(slice)-1; i++ {
 
 		for j := i + 1; j < len(slice); j++ {
 
