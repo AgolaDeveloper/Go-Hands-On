@@ -3,5 +3,13 @@
 package main
 
 func main() {
+	//we first initialize our slice
+	ourSlice := slice()
+	//then populate it
+	pop := popSlice(ourSlice)
+
+	//pop := popSlice()
+	//then remove duplicates
+	removeDuplicate(pop)
 
 }
