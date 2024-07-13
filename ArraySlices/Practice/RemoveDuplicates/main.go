@@ -10,6 +10,7 @@ func main() {
 
 	//pop := popSlice()
 	//then remove duplicates
-	removeDuplicate(pop)
+	remove := removeDuplicate(pop)
 
+	displaySlices(pop, remove)
 }
