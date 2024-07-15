@@ -26,7 +26,6 @@ func Items(inventory map[string]map[int]int) {
 				//print outter map's key and its respective inner map's key,k, and value,val
 				fmt.Printf("%v %v %v\n", key, k, val)
 			}
-			fmt.Printf("\n Name: %v %v \n", key, value)
 		}
 	}
 
