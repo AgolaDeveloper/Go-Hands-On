@@ -15,10 +15,17 @@ func Items(inventory map[string]map[int]int) {
 		//if its len is zero[it's empty]
 		fmt.Println("Empty Inventory... Stock up!")
 	} else {
-		//...then range through the inventory and display all the items
 		fmt.Println()
 		fmt.Println("ITEMS in STOCK:")
+
+		//...then range through the inventory and display all the items
 		for key, value := range ourItems {
+
+			//innerInventory/map
+			for k, val := range value {
+				//print outter map's key and its respective inner map's key,k, and value,val
+				fmt.Printf("%v %v %v\n", key, k, val)
+			}
 			fmt.Printf("\n Name: %v %v \n", key, value)
 		}
 	}
