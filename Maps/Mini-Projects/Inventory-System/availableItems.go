@@ -17,6 +17,7 @@ func Items(inventory map[string]map[int]int) {
 	} else {
 		//...then range through the inventory and display all the items
 		fmt.Println()
+		fmt.Println("ITEMS in STOCK:")
 		for key, value := range ourItems {
 			fmt.Printf("\n Name: %v %v \n", key, value)
 		}
