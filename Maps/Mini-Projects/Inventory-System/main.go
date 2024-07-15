@@ -30,7 +30,7 @@ func main() {
 
 		case 2:
 			//check/display available items in the inventory...taking inventory's func as argument
-			fmt.Println("Check ")
+			fmt.Println("Check Items in the Inventory ")
 			Items(ourStruct)
 		case 3:
 			//check/display the total price of all items in the inventory/stock
