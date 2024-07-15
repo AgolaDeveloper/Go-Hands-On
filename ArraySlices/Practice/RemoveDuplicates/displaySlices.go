@@ -6,7 +6,7 @@ import "fmt"
 //it takes two parameters
 //the original slice with duplicates [return value of popSlice]
 //...& sorted slice without duplicates [return value of removeDuplicate]
-func displaySlices(originalSlice, sortedSlice []int) {
+func DisplaySlices(originalSlice, sortedSlice []int) {
 	//print both slices
 
 	fmt.Println("Original Slice [With Duplicates]: ", originalSlice)

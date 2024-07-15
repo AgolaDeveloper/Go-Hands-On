@@ -7,7 +7,7 @@ import "fmt"
 //this function takes return value of ourSlice function [the Slice data struct]
 //then returns the already populated slice
 
-func popSlice(sliceStruct []int) []int {
+func PopSlice(sliceStruct []int) []int {
 
 	//store our parameter to a variable
 	ourSlice := sliceStruct

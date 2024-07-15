@@ -3,7 +3,7 @@ package main
 
 //receives already-populated slice as a parameter...
 //...then removes all the duplicates
-func removeDuplicate(sliceStruct []int) []int {
+func RemoveDuplicate(sliceStruct []int) []int {
 	//store received value of the parameter to a local variable
 	ourSlice := sliceStruct
 	//then append it to a whole new slice

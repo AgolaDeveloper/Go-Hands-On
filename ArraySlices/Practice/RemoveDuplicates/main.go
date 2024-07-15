@@ -4,13 +4,13 @@ package main
 
 func main() {
 	//we first initialize our slice
-	ourSlice := slice()
+	ourSlice := Slice()
 	//then populate it
-	pop := popSlice(ourSlice)
+	pop := PopSlice(ourSlice)
 
 	//pop := popSlice()
 	//then remove duplicates
-	remove := removeDuplicate(pop)
+	remove := RemoveDuplicate(pop)
 
-	displaySlices(pop, remove)
+	DisplaySlices(pop, remove)
 }
