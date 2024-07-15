@@ -5,9 +5,9 @@ import "fmt"
 
 //function displays whether there is an item in the inventory
 //takes inventory assa parameter
-func Items(inventory func() map[string]map[int]int) {
+func Items(inventory map[string]map[int]int) {
 	//intialize the inventory's method
-	ourItems := inventory()
+	ourItems := inventory
 
 	//checks whether inventory is empty and displays its state
 

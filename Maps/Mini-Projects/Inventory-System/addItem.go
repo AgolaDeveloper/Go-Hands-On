@@ -4,9 +4,9 @@ package main
 import "fmt"
 
 //the function takes function from inventory file as a parameter
-func AddItem(inventory func() map[string]map[int]int) {
+func AddItem(inventory map[string]map[int]int) {
 	//initialize the parameter
-	ourMap := inventory()
+	ourMap := inventory
 
 	//prompt item from user
 	//...and add to the inventory
