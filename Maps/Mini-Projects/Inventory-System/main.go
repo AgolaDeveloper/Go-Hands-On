@@ -16,8 +16,9 @@ func main() {
 	retrry:
 		var userChoice int
 
-		fmt.Println("1. Stock Up")
-		fmt.Println("2. Check Stock")
+		fmt.Println("1. Stock Up (Add Item)")
+		fmt.Println("2. Check Stock (Items in the Inventory)")
+		fmt.Println("3. Check stockTotal (Total price of items in inventory)")
 
 		fmt.Scan(&userChoice)
 
@@ -31,6 +32,12 @@ func main() {
 			//check/display available items in the inventory...taking inventory's func as argument
 			fmt.Println("Check ")
 			Items(ourStruct)
+		case 3:
+			//check/display the total price of all items in the inventory/stock
+
+			//first initialize return value from stockTotalPrice.go's method
+			totalStock := inventoryTotal(ourStruct)
+			fmt.Printf("\nTotal Stock[items' Price]: Ksh. %v \n", totalStock)
 		default:
 			fmt.Println("Invalid Choice... Retry")
 			goto retrry
