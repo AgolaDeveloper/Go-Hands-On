@@ -16,10 +16,12 @@ func inventoryTotal(inventory map[string]map[int]int) int {
 	} else {
 		//range through ourItems[the inventory] and sum-up the prices of all items as totalStock
 
-		//price of items is inner map's key
+		//total for every item is its item per piece * its quantity in the inventory
+		//price of items is inner map's key and quantity is value of inner map
+
 		for _, value := range ourItems {
-			for k := range value {
-				totalStock += k
+			for k, val := range value {
+				totalStock += (k * val)
 			}
 		}
 	}
