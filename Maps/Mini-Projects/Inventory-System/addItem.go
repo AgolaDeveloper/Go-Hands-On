@@ -27,11 +27,41 @@ func AddItem(inventory map[string]map[int]int) {
 	fmt.Println("Quantity>> ")
 	fmt.Scan(&itemQuantity)
 
-	//populate inner map with price, as key,and quantity as value
-	innerInventory[itemPrice] = itemQuantity
+	//first, check if itemName exists
+	_, ok := ourMap[itemName]
 
-	//now populate the inventory
-	//...with itemName askey and inneInventory as value
-	ourMap[itemName] = innerInventory
+	//if itemName already exist in the inventory
+	if ok {
+		//just update its price and quantity
+
+		for key, value := range ourMap {
+			//check if key is the itemName
+			if key == itemName {
+
+				for k, val := range value {
+
+					//again check if itemPrice equals key of this innerMap too
+
+					if k == itemPrice {
+						//then update by summing itemQuantity to innerMap's val, the intial/original quantity
+
+						val += itemQuantity
+
+					} else {
+						//if not...then it should be added to the inventory seperately
+
+						//populate inner map with price, as key,and quantity as value
+						innerInventory[itemPrice] = itemQuantity
+
+						//now populate the inventory
+						//...with itemName askey and inneInventory as value
+						ourMap[itemName] = innerInventory
+
+					}
+				}
+			}
+		}
+
+	}
 
 }
