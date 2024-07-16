@@ -30,51 +30,65 @@ func AddItem(inventory map[string]map[int]int) {
 	fmt.Println("Quantity>> ")
 	fmt.Scan(&itemQuantity)
 
-	for key, value := range ourMap {
-		//check if key[itemName already in the inventory] is...
-		//... same as new itemName user wanna add to inventory
-		//..using package strings' EqualFold method to compare/check that
+	//WE'LL DO THIS ONLY IF INVENTORY AINT EMPTY
+	//if its length isn't zero
 
-		sameItemName := strings.EqualFold(key, itemName)
+	if len(ourMap) != 0 {
+		//then we confirm if itemName already exist
+		for key, value := range ourMap {
+			//check if key[itemName already in the inventory] is...
+			//... same as new itemName user wanna add to inventory
+			//..using package strings' EqualFold method to compare/check that
 
-		if sameItemName {
-			//if it's true the itemNames match,...
-			//... go ahead and check if prices match too-in the inner map
+			sameItemName := strings.EqualFold(key, itemName)
 
-			for k, val := range value {
+			if sameItemName {
+				//if it's true the itemNames match,...
+				//... go ahead and check if prices match too-in the inner map
 
-				//again check if itemPrice equals key of this innerMap too
+				for k, val := range value {
 
-				if k == itemPrice {
-					//then update by summing itemQuantity to innerMap's val, the intial/original quantity
+					//again check if itemPrice equals key of this innerMap too
 
-					val += itemQuantity
-					innerInventory[k] = val
-					//first update innermap
+					if k == itemPrice {
+						//then update by summing itemQuantity to innerMap's val, the intial/original quantity
 
-					ourMap[key] = innerInventory
+						val += itemQuantity
+						innerInventory[k] = val
+						//first update innermap
 
-				} else {
-					//if not...then it should be added to the inventory distinctively
+						ourMap[key] = innerInventory
 
-					//populate inner map with price, as key,and quantity as value
-					innerInventory[itemPrice] = itemQuantity
+					} else {
+						//if not...then it should be added to the inventory distinctively
 
-					//now populate the inventory
-					//...with itemName askey and inneInventory as value
-					ourMap[itemName] = innerInventory
+						//populate inner map with price, as key,and quantity as value
+						innerInventory[itemPrice] = itemQuantity
 
+						//now populate the inventory
+						//...with itemName askey and inneInventory as value
+						ourMap[itemName] = innerInventory
+
+					}
 				}
+			} else {
+				//else if it doesn't exist already in the inventory...
+				//populate inner map with price, as key,and quantity as value
+				innerInventory[itemPrice] = itemQuantity
+
+				//now populate the inventory
+				//...with itemName askey and inneInventory as value
+				ourMap[itemName] = innerInventory
 			}
-		} else {
-			//else if it doesn't exist already in the inventory...
-			//populate inner map with price, as key,and quantity as value
-			innerInventory[itemPrice] = itemQuantity
-
-			//now populate the inventory
-			//...with itemName askey and inneInventory as value
-			ourMap[itemName] = innerInventory
 		}
-	}
+	} else {
+		//if inventory is empty...
+		//...we straight and populate accordingly
+		//populate inner map with price, as key,and quantity as value
+		innerInventory[itemPrice] = itemQuantity
 
+		//now populate the inventory
+		//...with itemName askey and inneInventory as value
+		ourMap[itemName] = innerInventory
+	}
 }
