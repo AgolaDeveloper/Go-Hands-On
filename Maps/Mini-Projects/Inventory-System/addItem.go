@@ -46,6 +46,10 @@ func AddItem(inventory map[string]map[int]int) {
 						//then update by summing itemQuantity to innerMap's val, the intial/original quantity
 
 						val += itemQuantity
+						innerInventory[k] = val
+						//first update innermap
+
+						ourMap[key] = innerInventory
 
 					} else {
 						//if not...then it should be added to the inventory distinctively
