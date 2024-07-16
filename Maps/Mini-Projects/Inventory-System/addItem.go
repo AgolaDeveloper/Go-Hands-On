@@ -48,7 +48,7 @@ func AddItem(inventory map[string]map[int]int) {
 						val += itemQuantity
 
 					} else {
-						//if not...then it should be added to the inventory seperately
+						//if not...then it should be added to the inventory distinctively
 
 						//populate inner map with price, as key,and quantity as value
 						innerInventory[itemPrice] = itemQuantity
@@ -62,6 +62,14 @@ func AddItem(inventory map[string]map[int]int) {
 			}
 		}
 
+	} else {
+		//and if the itemName doesn't exist add it to the inventory distinctively
+		//populate inner map with price, as key,and quantity as value
+		innerInventory[itemPrice] = itemQuantity
+
+		//now populate the inventory
+		//...with itemName askey and inneInventory as value
+		ourMap[itemName] = innerInventory
 	}
 
 }
