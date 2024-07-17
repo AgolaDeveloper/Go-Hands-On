@@ -62,6 +62,16 @@ func AddItem(inventory map[string]map[int]int) {
 
 					//then update inventory
 					ourMap[itemName] = innerInventory
+				} else {
+					//else, if itemPrice isn't equal to price of Item already in the inventory
+					//...just add it as a distinctively different item to the inventory
+					//FIRST, populate inner map...price as key and quantity as value
+					innerInventory[itemPrice] = itemQuantity
+
+					//then assigne innerMap, as value, to outerMap
+					//outerMap has itemName as its key
+
+					ourMap[itemName] = innerInventory
 				}
 
 			}
