@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 // the function takes function from inventory file as a parameter
@@ -44,49 +45,53 @@ func AddItem(inventory map[string]map[int]int) {
 	} else {
 		//else if Inventory not empty
 		//FIRST, check if itemName already exist
-		_, itemAlreadyExist := ourMap[itemName]
 
-		if itemAlreadyExist {
-			//if it's TRUE; item already exist...
-			//...then FIRST check if itemPrice is same
+		for key := range ourMap {
+			//range our map and check if our itemName matches any item already in the inventory
+			itemAlreadyExist := strings.EqualFold(itemName, key)
 
-			//you range the innerMap associated with the itemName
+			if itemAlreadyExist {
+				//if it's TRUE; item already exist...
+				//...then FIRST check if itemPrice is same
 
-			for k, val := range ourMap[itemName] {
-				if k == itemPrice {
-					val += itemQuantity
+				//you range the innerMap associated with the itemName
 
-					//then update the inventory
-					//first update innerMap
-					innerInventory[k] = val
+				for k, val := range ourMap[itemName] {
+					if k == itemPrice {
+						val += itemQuantity
 
-					//then update inventory
-					ourMap[itemName] = innerInventory
-				} else {
-					//else, if itemPrice isn't equal to price of Item already in the inventory
-					//...just add it as a distinctively different item to the inventory
-					//FIRST, populate inner map...price as key and quantity as value
-					innerInventory[itemPrice] = itemQuantity
+						//then update the inventory
+						//first update innerMap
+						innerInventory[k] = val
 
-					//then assigne innerMap, as value, to outerMap
-					//outerMap has itemName as its key
+						//then update inventory
+						ourMap[itemName] = innerInventory
+					} else {
+						//else, if itemPrice isn't equal to price of Item already in the inventory
+						//...just add it as a distinctively different item to the inventory
+						//FIRST, populate inner map...price as key and quantity as value
+						innerInventory[itemPrice] = itemQuantity
 
-					ourMap[itemName] = innerInventory
+						//then assigne innerMap, as value, to outerMap
+						//outerMap has itemName as its key
+
+						ourMap[itemName] = innerInventory
+					}
+
 				}
 
+			} else {
+				//else itemName doesn't exist already
+				//...go ahead and add item to the inventory
+
+				//FIRST, populate inner map...price as key and quantity as value
+				innerInventory[itemPrice] = itemQuantity
+
+				//then assigne innerMap, as value, to outerMap
+				//outerMap has itemName as its key
+
+				ourMap[itemName] = innerInventory
 			}
-
-		} else {
-			//else itemName doesn't exist already
-			//...go ahead and add item to the inventory
-
-			//FIRST, populate inner map...price as key and quantity as value
-			innerInventory[itemPrice] = itemQuantity
-
-			//then assigne innerMap, as value, to outerMap
-			//outerMap has itemName as its key
-
-			ourMap[itemName] = innerInventory
 		}
 	}
 
