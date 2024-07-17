@@ -41,5 +41,32 @@ func AddItem(inventory map[string]map[int]int) {
 
 		ourMap[itemName] = innerInventory
 
+	} else {
+		//else if Inventory not empty
+		//FIRST, check if itemName already exist
+		_, itemAlreadyExist := ourMap[itemName]
+
+		if itemAlreadyExist {
+			//if it's TRUE; item already exist...
+			//...then FIRST check if itemPrice is same
+
+			//you range the innerMap associated with the itemName
+
+			for k, val := range ourMap[itemName] {
+				if k == itemPrice {
+					val += itemQuantity
+
+					//then update the inventory
+					//first update innerMap
+					innerInventory[k] = val
+
+					//then update inventory
+					ourMap[itemName] = innerInventory
+				}
+
+			}
+
+		}
 	}
+
 }
