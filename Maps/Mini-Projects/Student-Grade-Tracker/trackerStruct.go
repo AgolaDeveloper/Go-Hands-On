@@ -7,10 +7,10 @@ package main
 //defining func that creates our Data structure... the struct that'll store Students' grades
 //it returns a map of studentName as key, its value an innerMap of key subjects and value grades
 
-func studentGrades() map[string]map[string]int {
+func studentGrades() map[string]map[string]string {
 	//make an empty, but not nil, map
 
-	studentGrades := make(map[string]map[string]int)
+	studentGrades := make(map[string]map[string]string)
 
 	return studentGrades
 }
