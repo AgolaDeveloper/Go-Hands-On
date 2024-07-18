@@ -1,13 +1,16 @@
 // this program file helps with adding students Grade to the tracker-Struct
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //func adds student and respective grades per subject
 //it takes return value of studentGrade method as parameter...
 //...(basically, it takes data structure as parameter then writes to it)
 
-//and returns nothing
+// and returns nothing
 func addStudentGrades(studentGrade map[string]map[string]string) {
 	//first initialize the parameter for readiness of local usage
 	studentGradeStruct := studentGrade
@@ -24,23 +27,66 @@ func addStudentGrades(studentGrade map[string]map[string]string) {
 	fmt.Scan(&studentName)
 	//must know number of subjects to be recorded for every student
 
+	//we check if MAP-STRUCT is empty
 	var numOfSubjects int
-	fmt.Printf("How many Subjects to be recorded for %v \n", studentName)
-	fmt.Scan(&numOfSubjects)
 
-	for i := 0; i < numOfSubjects; i++ {
-		//enter subject and respective grade
+	if len(studentGradeStruct) == 0 {
+		//if empty, go ahead and add studentGrade
+		fmt.Printf("How many Subjects to be recorded for %v \n", studentName)
+		fmt.Scan(&numOfSubjects)
 
-		fmt.Printf("Enter %v's SUBJECT %v \n: \n", studentName, i+1)
-		fmt.Scan(&studentSubject)
+		for i := 0; i < numOfSubjects; i++ {
+			//enter subject and respective grade
 
-		fmt.Printf("Enter %v's GRADE\n: \n", studentSubject)
-		fmt.Scan(&subjectGrade)
+			fmt.Printf("Enter %v's SUBJECT %v \n: \n", studentName, i+1)
+			fmt.Scan(&studentSubject)
 
-		//then map every subject to its grade in the inner map
-		InnerStudentGrade[studentSubject] = subjectGrade
+			fmt.Printf("Enter %v's GRADE\n: \n", studentSubject)
+			fmt.Scan(&subjectGrade)
+
+			//then map every subject to its grade in the inner map
+			InnerStudentGrade[studentSubject] = subjectGrade
+		}
+
+		//then finally map innerMap [subjects with their respective grades] to the student's Name
+		studentGradeStruct[studentName] = InnerStudentGrade
+	} else {
+		//if the MAP-STRUCT isn't empty
+		//must first check if the Name already exist in the MAP-STRUCT
+		//...by first ranging through the MAP-STRUCT; and confirming if the Name to be entered matches any key-name
+
+		for key := range studentGradeStruct {
+			nameExist := strings.EqualFold(key, studentName)
+
+			if nameExist {
+				//if the name existprint->
+
+				fmt.Println("No Duplicates Please! Name already exist")
+			} else {
+				//else if name doesn't exist->
+				//go ahead and add studentGrade
+
+				fmt.Printf("How many Subjects to be recorded for %v \n", studentName)
+				fmt.Scan(&numOfSubjects)
+
+				for i := 0; i < numOfSubjects; i++ {
+					//enter subject and respective grade
+
+					fmt.Printf("Enter %v's SUBJECT %v \n: \n", studentName, i+1)
+					fmt.Scan(&studentSubject)
+
+					fmt.Printf("Enter %v's GRADE\n: \n", studentSubject)
+					fmt.Scan(&subjectGrade)
+
+					//then map every subject to its grade in the inner map
+					InnerStudentGrade[studentSubject] = subjectGrade
+				}
+
+				//then finally map innerMap [subjects with their respective grades] to the student's Name
+				studentGradeStruct[studentName] = InnerStudentGrade
+
+			}
+		}
 	}
 
-	//then finally map innerMap [subjects with their respective grades] to the student's Name
-	studentGradeStruct[studentName] = InnerStudentGrade
 }
