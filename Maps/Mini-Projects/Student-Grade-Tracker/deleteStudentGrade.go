@@ -14,35 +14,50 @@ func deleteStudentGrade(studentGrade map[string]map[string]string, mapEmpty bool
 	studentGradeStruct := studentGrade
 
 	//then perform deletion only if the map-Struct ain't empty
-	if !mapEmpty {
+	if mapEmpty {
+		//if it's true that it's empty print->
+		fmt.Printf("\nOops!...No student Records Found \nCan't perform Any Deletion Operation\n")
+	} else {
 		//else if map-Struct isn't empty
 		//go ahead and delete only what's availale in the Map
 		//else... print(No match)
+
+		//if not empty then ...
+		//...ONLY DELETE IF THE NAME EXIST
 
 		var student2Delete string
 		fmt.Println("Enter Name of Student to Delete: ")
 		fmt.Scan(&student2Delete)
 
-		//first range through the map and...
+		count := 0
+
+		//first range through the map and check if the name2BeDeleted exist
+
 		for key := range studentGradeStruct {
 			//...CHECK if such a name exist in the map
 			studentExist := strings.EqualFold(key, student2Delete)
 
 			if studentExist {
-				//else if there's a match->
+
+				count++
+				/*
+					}
+
+					if count == 0 {*/
+
+				//if count==0; student exist
+				//delete
 				//(Delete KEY [not student2Delete] from the Map-struct)
 				delete(studentGradeStruct, key)
 				fmt.Printf("\n%v Successfully deleted\n", key)
-			} else {
-				//if it's false that student2Delete exist ->
-				continue
-
 			}
+
 		}
 
-	} else {
-		//if it's true that it's empty print->
-		fmt.Printf("\nOops!...No student Records Found \nCan't perform Any Deletion Operation\n")
+		if count == 0 {
+			//else if count>0; name doesn't exist->
+			fmt.Printf("\n%v doesn't exist in our Records\n", student2Delete)
+		}
 	}
 	//_, studentExist := studentGradeStruct[student2Delete]
 

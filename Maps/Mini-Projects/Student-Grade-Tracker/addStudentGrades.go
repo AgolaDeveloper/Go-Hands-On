@@ -54,38 +54,44 @@ func addStudentGrades(studentGrade map[string]map[string]string) {
 		//if the MAP-STRUCT isn't empty
 		//must first check if the Name already exist in the MAP-STRUCT
 		//...by first ranging through the MAP-STRUCT; and confirming if the Name to be entered matches any key-name
-
+		count := 0
 		for key := range studentGradeStruct {
 			nameExist := strings.EqualFold(key, studentName)
 
 			if nameExist {
+				count++
 				//if the name existprint->
 
-				fmt.Println("No Duplicates Please! Name already exist")
-			} else {
-				//else if name doesn't exist->
-				//go ahead and add studentGrade
-
-				fmt.Printf("How many Subjects to be recorded for %v \n", studentName)
-				fmt.Scan(&numOfSubjects)
-
-				for i := 0; i < numOfSubjects; i++ {
-					//enter subject and respective grade
-
-					fmt.Printf("Enter %v's SUBJECT %v \n: \n", studentName, i+1)
-					fmt.Scan(&studentSubject)
-
-					fmt.Printf("Enter %v's GRADE\n: \n", studentSubject)
-					fmt.Scan(&subjectGrade)
-
-					//then map every subject to its grade in the inner map
-					InnerStudentGrade[studentSubject] = subjectGrade
-				}
-
-				//then finally map innerMap [subjects with their respective grades] to the student's Name
-				studentGradeStruct[studentName] = InnerStudentGrade
-
+				continue
 			}
+		}
+
+		if count == 0 {
+			//go ahead and add studentGrade
+
+			fmt.Printf("How many Subjects to be recorded for %v \n", studentName)
+			fmt.Scan(&numOfSubjects)
+
+			for i := 0; i < numOfSubjects; i++ {
+				//enter subject and respective grade
+
+				fmt.Printf("Enter %v's SUBJECT %v \n: \n", studentName, i+1)
+				fmt.Scan(&studentSubject)
+
+				fmt.Printf("Enter %v's GRADE\n: \n", studentSubject)
+				fmt.Scan(&subjectGrade)
+
+				//then map every subject to its grade in the inner map
+				InnerStudentGrade[studentSubject] = subjectGrade
+			}
+
+			//then finally map innerMap [subjects with their respective grades] to the student's Name
+			studentGradeStruct[studentName] = InnerStudentGrade
+
+		} else {
+			//else if count is >1
+			fmt.Println("No Duplicates Please! Name already exist")
+
 		}
 	}
 
