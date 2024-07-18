@@ -32,10 +32,9 @@ func deleteStudentGrade(studentGrade map[string]map[string]string, mapEmpty bool
 				//else if there's a match->
 				//(Delete KEY [not student2Delete] from the Map-struct)
 				delete(studentGradeStruct, key)
-				fmt.Printf("\n%v Successfully deleted\n", student2Delete)
+				fmt.Printf("\n%v Successfully deleted\n", key)
 			} else {
 				//if it's false that student2Delete exist ->
-				fmt.Printf("\n%v can't be found : No match!\n", student2Delete)
 				continue
 
 			}
