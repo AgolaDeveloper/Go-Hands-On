@@ -7,4 +7,10 @@ func ouStruct() {
 	type Students struct {
 		Students []Student
 	}
+
+	func (*s Students) setStudents(students []Student){
+s.Students= students
+	}
+
+	
 }
